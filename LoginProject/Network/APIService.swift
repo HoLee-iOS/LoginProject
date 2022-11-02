@@ -23,35 +23,35 @@ struct Inform: Codable {
 }
 
 
+
 class APIService {
     
-    func signup(userName: String, email: String, password: String) {
-        
+    static func signup(userName: String, email: String, password: String, completion: @escaping (String?, Int?, Error?) -> Void) {
         AF.request(Router.signup(userName: userName, email: email, password: password)).validate(statusCode: 200..<299).responseString { response in
+            guard let status = response.response?.statusCode else { return }
             switch response.result {
             case .success(let data):
-                print(data)
+                completion(data, status, nil)
             case .failure(let error):
                 print(error)
             }
         }
     }
     
-    func login(email: String, password: String) {
-        
+    static func login(email: String, password: String, completion: @escaping (String?, Int?, Error?) -> Void) {
         AF.request(Router.login(email: email, password: password)).validate(statusCode: 200..<299).responseDecodable(of: Login.self) { response in
+            guard let statusCode = response.response?.statusCode else { return }
             switch response.result {
             case .success(let data):
                 UserDefaults.standard.set(data.token, forKey: "token")
-                print(UserDefaults.standard.string(forKey: "token")!)
+                completion(data.token, statusCode, nil)
             case .failure(let error):
-                print(error)
+                completion(nil, statusCode, error)
             }
         }
     }
     
-    func profile() {
-        
+    static func profile() {        
         AF.request(Router.me).validate(statusCode: 200..<299).responseDecodable(of: Profile.self) { response in
             switch response.result {
             case .success(let data):

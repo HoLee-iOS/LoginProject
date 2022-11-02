@@ -15,11 +15,14 @@ class BaseViewController: UIViewController {
         
         configure()
         setConstraints()
+        bindData()
     }
     
     func configure() { }
     
     func setConstraints() { }
+    
+    func bindData() { }
     
 //    func showToastMessage(_ message: String) {
 //        self.view.makeToast(message, position: .bottom)

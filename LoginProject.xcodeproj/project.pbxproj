@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C17EE31E2912D3EC00B8A687 /* NetWorkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17EE31D2912D3EC00B8A687 /* NetWorkResult.swift */; };
+		C17EE3202912E72000B8A687 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17EE31F2912E72000B8A687 /* LoginViewController.swift */; };
+		C17EE3222912E7A300B8A687 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17EE3212912E7A300B8A687 /* LoginViewModel.swift */; };
 		C1BDE8F72912434E00408BB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BDE8F62912434E00408BB3 /* AppDelegate.swift */; };
 		C1BDE8F92912434E00408BB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BDE8F82912434E00408BB3 /* SceneDelegate.swift */; };
 		C1BDE8FB2912434E00408BB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BDE8FA2912434E00408BB3 /* ViewController.swift */; };
@@ -15,7 +18,6 @@
 		C1BDE9032912434E00408BB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1BDE9012912434E00408BB3 /* LaunchScreen.storyboard */; };
 		C1BDE90C2912436300408BB3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C1BDE90B2912436300408BB3 /* Alamofire */; };
 		C1BDE9112912456E00408BB3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BDE9102912456E00408BB3 /* SignUpViewController.swift */; };
-		C1BDE9132912459700408BB3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BDE9122912459700408BB3 /* SignUpView.swift */; };
 		C1BDE9172912461A00408BB3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BDE9162912461A00408BB3 /* BaseView.swift */; };
 		C1BDE91A2912497A00408BB3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C1BDE9192912497A00408BB3 /* SnapKit */; };
 		C1BDE91D29124B8A00408BB3 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C1BDE91C29124B8A00408BB3 /* RxCocoa */; };
@@ -29,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C17EE31D2912D3EC00B8A687 /* NetWorkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkResult.swift; sourceTree = "<group>"; };
+		C17EE31F2912E72000B8A687 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C17EE3212912E7A300B8A687 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C1BDE8F32912434E00408BB3 /* LoginProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BDE8F62912434E00408BB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1BDE8F82912434E00408BB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +43,6 @@
 		C1BDE9022912434E00408BB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1BDE9042912434E00408BB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1BDE9102912456E00408BB3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		C1BDE9122912459700408BB3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		C1BDE9162912461A00408BB3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C1BDE92429124CB000408BB3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C1BDE92629124EF400408BB3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -82,7 +86,6 @@
 		C1BDE8F52912434E00408BB3 /* LoginProject */ = {
 			isa = PBXGroup;
 			children = (
-				C1BDE90E2912450D00408BB3 /* Views */,
 				C1BDE90D291244BC00408BB3 /* ViewControllers */,
 				C1BDE92229124C6000408BB3 /* ViewModels */,
 				C1BDE9142912460700408BB3 /* Constants */,
@@ -102,16 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				C1BDE9102912456E00408BB3 /* SignUpViewController.swift */,
+				C17EE31F2912E72000B8A687 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		C1BDE90E2912450D00408BB3 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C1BDE9122912459700408BB3 /* SignUpView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		C1BDE90F2912451F00408BB3 /* Network */ = {
@@ -120,6 +116,7 @@
 				C1BDE92A29125BF100408BB3 /* APIService.swift */,
 				C1BDE92C29125C9300408BB3 /* Endpoint.swift */,
 				C1BDE92E2912693200408BB3 /* Router.swift */,
+				C17EE31D2912D3EC00B8A687 /* NetWorkResult.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -145,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				C1BDE92629124EF400408BB3 /* SignUpViewModel.swift */,
+				C17EE3212912E7A300B8A687 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -232,13 +230,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C17EE3202912E72000B8A687 /* LoginViewController.swift in Sources */,
 				C1BDE92F2912693200408BB3 /* Router.swift in Sources */,
 				C1BDE8FB2912434E00408BB3 /* ViewController.swift in Sources */,
-				C1BDE9132912459700408BB3 /* SignUpView.swift in Sources */,
 				C1BDE92729124EF400408BB3 /* SignUpViewModel.swift in Sources */,
 				C1BDE8F72912434E00408BB3 /* AppDelegate.swift in Sources */,
+				C17EE31E2912D3EC00B8A687 /* NetWorkResult.swift in Sources */,
 				C1BDE92D29125C9300408BB3 /* Endpoint.swift in Sources */,
 				C1BDE9172912461A00408BB3 /* BaseView.swift in Sources */,
+				C17EE3222912E7A300B8A687 /* LoginViewModel.swift in Sources */,
 				C1BDE9112912456E00408BB3 /* SignUpViewController.swift in Sources */,
 				C1BDE92529124CB000408BB3 /* BaseViewController.swift in Sources */,
 				C1BDE92B29125BF100408BB3 /* APIService.swift in Sources */,
