@@ -1,5 +1,5 @@
 //
-//  NetWorkResult.swift
+//  NetworkError.swift
 //  LoginProject
 //
 //  Created by 이현호 on 2022/11/03.

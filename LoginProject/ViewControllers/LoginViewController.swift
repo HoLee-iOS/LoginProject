@@ -90,19 +90,10 @@ class LoginViewController: BaseViewController {
                 guard let email = vc.emailTextField.text else { return }
                 guard let password = vc.passwordTextField.text else { return }
                 vc.viewModel.requestLogin(email: email, password: password)
+                vc.transitionVC(vc: ProfileViewController.self)
             }
             .disposed(by: disposeBag)
         
-        viewModel.success
-            .withUnretained(self)
-            .bind { (vc, value) in
-                print(value)
-//                vc.modalPresentationStyle = .overFullScreen
-//                vc.present(SignUpViewController(), animated: true)
-            }
-            .disposed(by: disposeBag)
     }
-    
-    
     
 }

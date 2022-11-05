@@ -21,10 +21,12 @@ protocol CommonViewModel {
 
 class SignUpViewModel: CommonViewModel {
     
+    let disposeBag = DisposeBag()
+    
     var username = BehaviorRelay(value: "닉네임을 입력해주세요")
     var email = BehaviorRelay(value: "이메일을 입력해주세요")
     var password = BehaviorRelay(value: "비밀번호를 입력해주세요")
-    var success = BehaviorSubject<Bool>(value: false)
+    var success = BehaviorSubject(value: false)
     
     func requestSignUp(userName: String, email: String, password: String) {
         APIService.signup(userName: userName, email: email, password: password) { [weak self] value, statusCode, error in
@@ -33,11 +35,11 @@ class SignUpViewModel: CommonViewModel {
             case 200..<300:
                 self?.success.onNext(true)
             case 300..<400:
-                self?.success.onError(NetworkError.networkFail)
+                self?.success.onError(NetworkError.badRequest)
             case 400..<500:
                 self?.success.onError(NetworkError.badRequest)
             default:
-                self?.success.onError(NetworkError.networkFail)
+                self?.success.onError(NetworkError.badRequest)
             }
         }
     }

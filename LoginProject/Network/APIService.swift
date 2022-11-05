@@ -22,12 +22,10 @@ struct Inform: Codable {
     let username: String
 }
 
-
-
 class APIService {
     
     static func signup(userName: String, email: String, password: String, completion: @escaping (String?, Int?, Error?) -> Void) {
-        AF.request(Router.signup(userName: userName, email: email, password: password)).validate(statusCode: 200..<299).responseString { response in
+        AF.request(Router.signup(userName: userName, email: email, password: password)).responseString { response in
             guard let status = response.response?.statusCode else { return }
             switch response.result {
             case .success(let data):
@@ -39,7 +37,7 @@ class APIService {
     }
     
     static func login(email: String, password: String, completion: @escaping (String?, Int?, Error?) -> Void) {
-        AF.request(Router.login(email: email, password: password)).validate(statusCode: 200..<299).responseDecodable(of: Login.self) { response in
+        AF.request(Router.login(email: email, password: password)).responseDecodable(of: Login.self) { response in
             guard let statusCode = response.response?.statusCode else { return }
             switch response.result {
             case .success(let data):
@@ -51,13 +49,14 @@ class APIService {
         }
     }
     
-    static func profile() {        
+    static func profile(completion: @escaping (Profile?, Int?, Error?) -> Void) {
         AF.request(Router.me).validate(statusCode: 200..<299).responseDecodable(of: Profile.self) { response in
+            guard let statusCode = response.response?.statusCode else { return }
             switch response.result {
             case .success(let data):
-                print(data)
+                completion(data, statusCode, nil)
             case .failure(let error):
-                print(error)
+                completion(nil, statusCode, error)
             }
         }
         

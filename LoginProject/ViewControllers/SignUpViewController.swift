@@ -92,7 +92,7 @@ class SignUpViewController: BaseViewController {
         
         output.signUpTap
             .withUnretained(self)
-            .subscribe { (vc, _) in
+            .bind { (vc, _) in
                 guard let name = vc.userNameTextField.text else { return }
                 guard let email = vc.emailTextField.text else { return }
                 guard let password = vc.passwordTextField.text else { return }
@@ -100,11 +100,20 @@ class SignUpViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+       
+        
         output.success
             .withUnretained(self)
-            .bind { (vc, value) in
-                vc.modalPresentationStyle = .overFullScreen
-                vc.present(LoginViewController(), animated: true)
+            .subscribe { (vc, value) in
+                if value {
+                    vc.transitionVC(vc: LoginViewController.self)
+                }
+            } onError: { error in
+                self.showToastMessage(error.localizedDescription)
+            } onCompleted: {
+                print("Completed")
+            } onDisposed: {
+                print("Disposed")
             }
             .disposed(by: disposeBag)
     }
