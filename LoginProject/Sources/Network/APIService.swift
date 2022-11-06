@@ -8,20 +8,6 @@
 import Foundation
 import Alamofire
 
-struct Login: Codable {
-    let token: String
-}
-
-struct Profile: Codable {
-    let user: Inform
-}
-
-struct Inform: Codable {
-    let photo: String
-    let email: String
-    let username: String
-}
-
 class APIService {
     
     static func signup(userName: String, email: String, password: String, completion: @escaping (String?, Int?, Error?) -> Void) {

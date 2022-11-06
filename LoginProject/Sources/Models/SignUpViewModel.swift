@@ -10,15 +10,6 @@ import RxSwift
 import RxCocoa
 import Alamofire
 
-protocol CommonViewModel {
-    
-    associatedtype Input
-    associatedtype Output
-    
-    func transform(input: Input) -> Output
-    
-}
-
 class SignUpViewModel: CommonViewModel {
     
     let disposeBag = DisposeBag()

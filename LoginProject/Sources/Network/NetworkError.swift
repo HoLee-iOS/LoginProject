@@ -7,6 +7,7 @@
 
 import Foundation
 
+//네트워크 에러에 대한 열거형 케이스
 enum NetworkError: Error {
     case badRequest
     case serverError

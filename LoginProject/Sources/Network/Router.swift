@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+//URL컨버터블로 API통신
 enum Router: URLRequestConvertible {
     
     case signup(userName: String, email: String, password: String)
@@ -40,7 +41,7 @@ enum Router: URLRequestConvertible {
             return ["Content-Type" : "application/x-www-form-urlencoded"]
         case .me:
             return [
-                "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "token")!)",
+                "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "token") ?? "")",
                 "Content-Type" : "application/x-www-form-urlencoded"
             ]
         }
@@ -69,6 +70,7 @@ enum Router: URLRequestConvertible {
         var request = URLRequest(url: url)
         request.method = method
         request.headers = headers
+        //통신의 컨텐트 타입이 form-urlencoded이므로 파라미터의 인코딩을 해당 타입에 맞게 해주고 API통신을 요청
         request = try URLEncodedFormParameterEncoder().encode(parameters, into: request)
         
         return request

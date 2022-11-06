@@ -16,6 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
+        //토큰에 정보가 없다면 회원가입 화면으로 시작
+        //토근에 정보가 담겨져있다면 로그인 정보가 있다는 뜻이므로 프로필 화면으로 시작        
         if UserDefaults.standard.string(forKey: "token") == "" {
             window?.rootViewController = SignUpViewController()
         } else {
